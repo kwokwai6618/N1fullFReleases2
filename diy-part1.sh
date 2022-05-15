@@ -141,11 +141,11 @@ mv target.mk target/linux/armvirt/64/
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 
 # add diskman
-rm -rf package/lean/luci-app-diskman
-rm -rf package/lean/parted
-svn co https://github.com/lisaac/luci-app-diskman/trunk/applications/luci-app-diskman package/lean/luci-app-diskman
-git clone https://github.com/lisaac/luci-app-diskman.git
-mkdir -p package/lean/parted && cp -i luci-app-diskman/Parted.Makefile package/lean/parted/Makefile
+#rm -rf package/lean/luci-app-diskman
+#rm -rf package/lean/parted
+#svn co https://github.com/lisaac/luci-app-diskman/trunk/applications/luci-app-diskman package/lean/luci-app-diskman
+#git clone https://github.com/lisaac/luci-app-diskman.git
+#mkdir -p package/lean/parted && cp -i luci-app-diskman/Parted.Makefile package/lean/parted/Makefile
 
 # add diskman
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-diskman package/lean/luci-app-diskman
@@ -162,8 +162,8 @@ mv luci-app-koolproxyR package/lean/
 # Add Mattraks helloworld
 #sed -i '$a src-git helloworld https://github.com/Mattraks/helloworld' feeds.conf.default
 
-git clone -b master https://github.com/vernesong/OpenClash.git package/lean/luci-app-openclash  #openclash出国软件
-git clone https://github.com/frainzy1477/luci-app-clash.git package/lean/luci-app-clash  #clash出国软件
+svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/lean/luci-app-openclash
+#git clone https://github.com/frainzy1477/luci-app-clash.git package/lean/luci-app-clash  #clash出国软件
 
 #添加smartdns
 git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
