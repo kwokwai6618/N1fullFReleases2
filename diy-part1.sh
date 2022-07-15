@@ -11,6 +11,11 @@
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
+# add NanoHatOLED for Neo2
+#sed -i '$a src-git NanoHatOLED https://github.com/ctr54188/NanoHatOLED.git' feeds.conf.default
+#wget https://github.com/ctr54188/NanoHatOLED/raw/master/openwrt/target/linux/sunxi/patches-5.4/499-neo2-enable-i2c.patch
+#mv 499-neo2-enable-i2c.patch target/linux/sunxi/patches-5.4/
+
 # add passwall
 #sed -i '$a src-git diy1 https://github.com/xiaorouji/openwrt-passwall.git;main' feeds.conf.default
 #sed -i '$a src-git upx https://github.com/kuoruan/openwrt-upx.git' feeds.conf.default
@@ -21,11 +26,9 @@ git clone https://github.com/fw876/helloworld.git package/helloworld
 
 # add passwall
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/openwrt-passwall/luci-app-passwall
-#git clone https://github.com/Mattaclp/openwrt-passwall.git package/diy1
-#git clone https://github.com/xiaorouji/openwrt-passwall.git package/diy1
+#svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/openwrt-passwall/luci-app-passwall
+svn co https://github.com/Gzxhwq/openwrt-passwall/branches/luci-me/luci-app-passwall package/openwrt-passwall/luci-app-passwall
 git clone https://github.com/kuoruan/openwrt-upx.git package/openwrt-upx
-#git clone https://github.com/chiwaicw/openwrt-passwall.git package/diy1
 
 # add luci-app-cpufreq
 #sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
@@ -37,16 +40,20 @@ svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/
 #sed -i '$a src-git helloworld https://github.com/Mattaclp/helloworld' feeds.conf.default
 
 # Add immortalwrt packages
+#sed -i '$a src-git immortalwrtpackages https://github.com/chiwaicw/immortalwrtpackages' feeds.conf.default
+#sed -i '$a src-git immortalwrtluci https://github.com/chiwaicw/immortalwrtluci' feeds.conf.default
+sed -i '$a src-git immortalwrtpackages https://github.com/chiwaicw/immortalwrtpackagesslim' feeds.conf.default
+sed -i '$a src-git immortalwrtluci https://github.com/chiwaicw/immortalwrtlucislim' feeds.conf.default
+#svn co https://github.com/chiwaicw/immortalwrtpackages/trunk/net/gowebdav package/lean/gowebdav
+#svn co https://github.com/chiwaicw/immortalwrtluci/trunk/applications/luci-app-gowebdav package/lean/luci-app-gowebdav
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git
+mv luci-app-adguardhome package/lean/
 #sed -i '$a src-git projectpackages https://github.com/immortalwrt/packages.git;openwrt-18.06' feeds.conf.default
 #sed -i '$a src-git projectluci https://github.com/immortalwrt/luci.git;openwrt-18.06-k5.4' feeds.conf.default
 #sed -i '$a src-git packagesImmortalWrt https://github.com/kwokwai6618/packages-ImmortalWrt.git;openwrt-18.06' feeds.conf.default
 #sed -i '$a src-git luciImmortalWrt https://github.com/kwokwai6618/luci-ImmortalWrt.git;openwrt-18.06' feeds.conf.default
 #sed -i '$a src-git immortalwrtpackages https://github.com/Mattaclp/immortalwrtpackages' feeds.conf.default
 #sed -i '$a src-git immortalwrtluci https://github.com/Mattaclp/immortalwrtluci' feeds.conf.default
-sed -i '$a src-git immortalwrtpackages https://github.com/chiwaicw/immortalwrtpackages' feeds.conf.default
-sed -i '$a src-git immortalwrtluci https://github.com/chiwaicw/immortalwrtluci' feeds.conf.default
-git clone https://github.com/rufengsuixing/luci-app-adguardhome.git
-mv luci-app-adguardhome package/lean/
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/AdGuardHome
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome package/luci-app-adguardhome
 #svn co https://github.com/immortalwrt/packages/trunk/utils/filebrowser package/filebrowser
@@ -63,8 +70,8 @@ mv luci-app-adguardhome package/lean/
 # add aliyundrive
 #git clone https://github.com/jerrykuku/go-aliyundrive-webdav.git
 #rm -rf package/lean/aliyundrive-webdav && mv go-aliyundrive-webdav package/lean/
-git clone https://github.com/jerrykuku/luci-app-go-aliyundrive-webdav.git
-mv luci-app-go-aliyundrive-webdav package/lean/
+#git clone https://github.com/jerrykuku/luci-app-go-aliyundrive-webdav.git
+#mv luci-app-go-aliyundrive-webdav package/lean/
 #rm -rf package/lean/luci-app-aliyundrive-webdav && mv luci-app-go-aliyundrive-webdav package/lean/
 
 # add argon-config
@@ -84,8 +91,8 @@ mv luci-app-vssr package/lean/
 #mv casaJJJos package/lean/
 
 # add JD
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
-mv luci-app-jd-dailybonus package/lean/
+#git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
+#mv luci-app-jd-dailybonus package/lean/
 #rm -rf package/lean/luci-app-jd-dailybonus && mv luci-app-jd-dailybonus package/lean/
 
 # add DDNSTO
@@ -163,11 +170,12 @@ mv luci-app-koolproxyR package/lean/
 #sed -i '$a src-git helloworld https://github.com/Mattraks/helloworld' feeds.conf.default
 
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/lean/luci-app-openclash
+#git clone -b master https://github.com/vernesong/OpenClash.git package/lean/luci-app-openclash  #openclash出国软件
 #git clone https://github.com/frainzy1477/luci-app-clash.git package/lean/luci-app-clash  #clash出国软件
 
 #添加smartdns
-git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
-git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
+#git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
+#git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
 
 # Add po2lmo
 git clone https://github.com/openwrt-dev/po2lmo.git
