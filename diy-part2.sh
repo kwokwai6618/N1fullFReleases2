@@ -12,8 +12,8 @@
 sed -i 's/192.168.1.1/192.168.1.253/g' package/base-files/files/bin/config_generate
 
 # Add shadowsocks-rust 1.15.0-alpha.4
-rm -rf package/helloworld/shadowsocks-rust
-svn co  https://github.com/Mattaclp/NewLEDE/trunk/shadowsocks-rust package/helloworld/shadowsocks-rust
+#rm -rf package/helloworld/shadowsocks-rust
+#svn co  https://github.com/Mattaclp/NewLEDE/trunk/shadowsocks-rust package/helloworld/shadowsocks-rust
 
 # Add NanoHatOLED weather support (tested not work, need to fix)
 #rm -rf feeds/NanoHatOLED/nanohatoled/files/NanoHatOLED/bakebit_nanohat_oled.py
@@ -40,7 +40,7 @@ sed -i '/uci commit luci/i\uci set luci.main.mediaurlbase=/luci-static/argon' pa
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 修改内核版本
-sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.18/g' target/linux/x86/Makefile
+sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.0/g' target/linux/x86/Makefile
 #sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=5.10/g' target/linux/x86/Makefile
 #sed -i 's/KERNEL_PATCHVER=5.10/KERNEL_PATCHVER=5.15/g' target/linux/rockchip/Makefile
 #sed -i 's/KERNEL_TESTING_PATCHVER=5.15/KERNEL_TESTING_PATCHVER=5.4/g' target/linux/rockchip/Makefile
