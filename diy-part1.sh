@@ -26,8 +26,8 @@ git clone https://github.com/fw876/helloworld.git package/helloworld
 
 # add passwall
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
-#svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/openwrt-passwall/luci-app-passwall
-svn co https://github.com/Gzxhwq/openwrt-passwall/branches/luci-me/luci-app-passwall package/openwrt-passwall/luci-app-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/openwrt-passwall/luci-app-passwall
+#svn co https://github.com/Gzxhwq/openwrt-passwall/branches/luci-me/luci-app-passwall package/openwrt-passwall/luci-app-passwall
 git clone https://github.com/kuoruan/openwrt-upx.git package/openwrt-upx
 
 # add luci-app-cpufreq
@@ -182,6 +182,9 @@ git clone https://github.com/openwrt-dev/po2lmo.git
 pushd po2lmo
 make && sudo make install
 popd
+
+Add UnblockNeteaseMusic
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 
 # Add Beginner-Go packages
 #svn co https://github.com/Beginner-Go/my-packages/trunk/luci-app-control-webrestriction package/lean/luci-app-control-webrestriction
