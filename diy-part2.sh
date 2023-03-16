@@ -11,6 +11,10 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.1.253/g' package/base-files/files/bin/config_generate
 
+#luci-app-alist
+#rm -rf feeds/packages/lang/golang
+#svn export https://github.com/sbwml/packages_lang_golang/trunk feeds/packages/lang/golang
+
 # Add shadowsocks-rust 1.15.0-alpha.4
 #rm -rf package/helloworld/shadowsocks-rust
 #svn co  https://github.com/Mattaclp/NewLEDE/trunk/shadowsocks-rust package/helloworld/shadowsocks-rust
@@ -40,7 +44,8 @@ sed -i '/uci commit luci/i\uci set luci.main.mediaurlbase=/luci-static/argon' pa
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 修改内核版本
-sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.0/g' target/linux/x86/Makefile
+sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.1/g' target/linux/x86/Makefile
 #sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=5.10/g' target/linux/x86/Makefile
 #sed -i 's/KERNEL_PATCHVER=5.10/KERNEL_PATCHVER=5.15/g' target/linux/rockchip/Makefile
 #sed -i 's/KERNEL_TESTING_PATCHVER=5.15/KERNEL_TESTING_PATCHVER=5.4/g' target/linux/rockchip/Makefile
+
